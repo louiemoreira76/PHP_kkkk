@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>seila</title>
+</head>
+<body>
+    <div>
+    <form name="meu formulario" method="POST" action="aula4.php">    
+        <h1>Cadastro</h1>
+        <p> <input type="text" placeholder="Nome" required="required" name="nome"> </p>
+
+        <p>
+            <select name="serie" id="serie01">
+
+            <option value="0">Série</option>
+            <?php for ($s = 1; $s <= 9; $s++) { ?>
+                <option value="<?php echo $s;?>"> <?php echo $s;?></option>
+                <?php } ?>
+            </select>
+        </p>
+
+        <p>
+            <input type="submit" value="Enviar"/>
+        </p>
+    
+    
+    </div>
+
+    <section>
+        
+    </section>
+    </form>
+
+</body>
+</html>

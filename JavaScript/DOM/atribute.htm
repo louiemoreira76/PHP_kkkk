@@ -1,0 +1,59 @@
+<body>
+    <input type="text" id="btn" value="1">
+
+    <div class="div"></div>
+
+    <button onclick="toggle()">OPa</button>
+
+    <style>
+        class1 {
+            width: 1px;
+            height: 1px;
+            background-color: aqua;
+        }
+        .div {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+            margin-bottom: 50px;
+        }
+    </style>
+
+    <script>
+        // Seleciona o elemento input pelo id 'btn'
+        const btn = document.querySelector('#btn');
+        console.log(btn); // Exibe o elemento no console
+
+        // Define o atributo 'placeholder' com o texto 'Novo texto'
+        btn.setAttribute('placeholder', 'Novo texto');
+
+        // Remove o atributo 'alt' do input
+        btn.removeAttribute('alt');
+
+        // Obtém e exibe o valor do atributo 'type' do input no console
+        console.log(btn.getAttribute('type'));
+
+        // Define o evento 'onclick' para o botão, associando à função 'print'
+        btn.setAttribute('onclick', 'print()');
+
+        // Função que exibe um alerta quando o botão for clicado
+        function print() {
+            alert('🐱‍👤');
+        }
+
+        // Seleciona o elemento div pela classe 'div'
+        const conteiner = document.querySelector('.div');
+
+        // Verifica se a div contém a classe 'ativo' (retorna true ou false)
+        console.log(conteiner.classList.contains('ativo'));
+
+        let num = 0; // Variável para controlar o número de classes adicionadas
+
+        // Função chamada ao clicar no botão para adicionar uma nova classe à div
+        function toggle() {
+            num += 1; // Incrementa o número
+            // Adiciona uma nova classe com o nome 'class1', 'class2', etc.
+            conteiner.classList.add(`class${num}`);
+        }
+    </script>
+</body>

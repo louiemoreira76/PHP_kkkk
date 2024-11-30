@@ -1,0 +1,84 @@
+<body>
+    <style>
+        .controls {
+            display: flex;
+            flex-direction: row;
+            gap: 10px; 
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+        }
+    </style>
+
+    <div class="container">
+        <video id="video" width="620" height="440" controls>
+            <source src="../../../Videos/2024-08-31 21-14-18.mp4" type="video/mp4">
+        </video>
+        <div class="controls">
+            <button id="play">Play</button>
+            <button id="pause">Pause</button>
+            <button id="stop" onclick="notion()">Stop</button>
+        </div>
+    </div>
+    <script>
+        const video = document.querySelector('#video');
+        const playButton = document.querySelector('#play');
+        const pauseButton = document.querySelector('#pause');
+        const stopButton = document.querySelector('#stop');
+
+        // Quando o vídeo começar a tocar, dispara o evento
+        video.addEventListener('play', () => {
+            console.log('Play no vídeo');
+        });
+
+        // Ao clicar no botão play, inicia o vídeo
+        playButton.addEventListener('click', () => {
+            video.play();
+        });
+
+        // Quando o vídeo for pausado, dispara o evento
+        video.addEventListener('pause', () => {
+            console.log('Pausado');
+        });
+
+        // Ao clicar no botão pause, pausa o vídeo
+        pauseButton.addEventListener('click', () => {
+            video.pause();
+        });
+
+        // Quando o vídeo chegar ao fim, dispara o evento
+        video.addEventListener('ended', () => {
+            console.log('A reprodução chegou ao fim');
+        });
+
+        // Ao clicar no botão stop, pausa o vídeo e retorna ao início
+        stopButton.addEventListener('click', () => {
+            video.pause(); // Pausa o vídeo
+            video.currentTime = 0; // Retorna o tempo para o início
+        });
+
+        // Função personalizada que exibe uma mensagem quando o vídeo é parado
+        function notion() {
+    // Verifica se a mensagem já está na tela para evitar duplicidade
+    if (!document.querySelector('.video-message')) {
+        const message = document.querySelector('body'); // Seleciona o body
+        const msg = document.createElement('h3'); // Cria um novo elemento <h3>
+        msg.classList.add('video-message'); // Adiciona uma classe para identificação
+        msg.innerHTML = 'Vídeo acabou 🐱‍🏍'; // Mensagem exibida
+        message.appendChild(msg); // Anexa a mensagem ao body
+
+        // Remove a mensagem após 5 segundos
+        setTimeout(() => {
+            msg.remove(); // Remove o elemento <h3>
+        }, 5000);
+    }
+}
+
+        // Eventos adicionais disponíveis (não utilizados)
+        // 'timeupdate', 'seeking', 'seeked', 'volumechange'
+    </script>
+</body>

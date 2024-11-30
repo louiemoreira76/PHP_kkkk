@@ -1,0 +1,51 @@
+<body>
+    <style>
+        body {
+            height: 200px;
+            width: 200px;
+        }
+        #info {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 40rem;
+            height: 10rem;
+            font-size: xx-large;
+            background-color: paleturquoise;
+            padding: 5px 10px;
+        }
+    </style>
+
+    <div id="info">
+        <p>🐱‍🏍🐱‍🚀🐱‍👓🐱‍💻🐱‍🐉🐱‍👤😾😿😽🙀😼😻😹😸😸😺</p>
+        <p>🐱‍🏍🐱‍🚀🐱‍👓🐱‍💻🐱‍🐉🐱‍👤😾😿😽🙀😼😻😹😸😸😺</p>
+        <p>¨¨¨¨¨¨¨¨¨¨¨¨¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬</p>
+    </div>
+
+    <script>
+        // Seleciona todas as tags <p> dentro da div #info
+        const info = document.querySelectorAll('p');
+        
+        // Evento de toque inicial (quando a tela é tocada)
+        window.addEventListener('touchstart', (e) => {
+            const touchCount = e.touches.length; // Conta quantos dedos estão tocando a tela
+            info[0].textContent = `Tocadas ${touchCount}`; // Atualiza o conteúdo da primeira <p>
+        });
+        
+        // Evento de final de toque (quando o dedo é removido da tela)
+        window.addEventListener('touchend', (e) => {
+            const touchCount = e.touches.length; // Conta quantos dedos ainda estão tocando a tela
+            info[1].textContent = `Tocadas ${touchCount}`; // Atualiza o conteúdo da segunda <p>
+        });
+
+        // Evento de movimento de toque (quando o dedo se move na tela)
+        window.addEventListener('touchmove', (e) => {
+            const touch = e.touches[0]; // Pega as coordenadas do primeiro toque
+            const x = touch.clientX; // Posição X (horizontal) do dedo
+            const y = touch.clientY; // Posição Y (vertical) do dedo
+
+            // Atualiza o conteúdo da terceira <p> com as coordenadas do dedo
+            info[2].textContent = `Tocadas com dedo na tela - x: ${x}, y: ${y}`;
+        });
+    </script>
+</body>

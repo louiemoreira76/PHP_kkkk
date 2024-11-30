@@ -1,0 +1,21 @@
+<body>
+    
+</body>
+
+<script>
+        document.addEventListener('DOMContentLoaded', () =>{
+            console.log("Todos html carregado da pagina")
+        })
+
+        window.addEventListener('load', () => {
+            console.log('Carregou a pagina e seus recursos externos carregados')
+        })
+
+        window.addEventListener("pageshow", (e) => {
+            console("Veio de cache: ", e.persisted)
+        })
+        //depois que sai da tela 
+        window.addEventListener('pagehide', () => {
+            console.log(':)SAIU ')
+        })
+</script>

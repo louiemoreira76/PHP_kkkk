@@ -1,0 +1,29 @@
+<body>
+    
+    <input type="text" id="inputText">
+
+    <ul id="itemList">
+        <li>1</li>
+        <li>2</li>
+    </ul>
+
+    <script>
+        // Seleciona a lista não ordenada pelo ID
+        const ul = document.querySelector('#itemList');
+
+        // Seleciona o primeiro item da lista
+        const li = ul.querySelector('li');
+
+        // Adiciona um evento de clique à lista
+        ul.addEventListener('click', function(event) {
+            console.log(this); // Exibe o elemento 'ul' no console
+            console.log(event); // Exibe o objeto do evento no console
+        });
+
+        // Adiciona um evento de clique ao item da lista
+        li.addEventListener('click', function(event) {
+            event.stopPropagation(); // Impede que o evento se propague para o pai
+            // Adicione aqui outras ações que deseja executar ao clicar no item
+        });
+    </script>
+</body>

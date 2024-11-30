@@ -1,0 +1,81 @@
+<body>
+    <h1 id="title">Ninja Coder</h1>
+    <p class="text">We believe that Code Ninjas is unlike anything your child has experienced before. Every day thousands of our Ninjas enter our Dojos to learn to code on our proprietary learning platform.</p>
+    <p class="text">And in the process UNLEASH THEIR INNER NINJA! Your child will join like-minded students and together they will tackle fun and engaging problems - and have a great time!</p>
+        
+    <input id="textInput" type="text" value="hum">
+
+    <ul id="lista">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <button onclick="addListItem()">Adicionar</button>
+
+    <button onclick="removeItem()">Remover</button>
+
+    <input type="text" id="input-text">
+    <button onclick="addTextNode()">Adicionar texto</button>
+    <p id="paragrafo"></p>
+
+    <script>
+        // Selecionando os elementos
+        const h1 = document.querySelector('#title'); // Seleciona o título pelo id
+        const p = document.querySelector('.text'); // Seleciona o primeiro parágrafo pela classe
+        const allP = document.querySelectorAll('p'); // Seleciona todos os parágrafos
+        const input = document.querySelector('#textInput'); // Seleciona o input de texto
+
+        // Exibe o conteúdo do h1 no console
+        console.log(h1);
+
+        // Modificar o primeiro parágrafo após 2 segundos
+        setTimeout(() => {
+            p.innerHTML = '<hr>Mudei 🐱‍👤🐱‍👤🐱‍👤'; // Altera o texto do parágrafo após 2 segundos
+        }, 2000);
+
+        // Adiciona um placeholder ao input de texto
+        input.placeholder = 'Digite algo aqui...';
+
+        // Evento que detecta mudanças de texto no input
+        input.addEventListener('input', (event) => {
+            console.log('Texto no input:', event.target.value); // Exibe o valor digitado no input no console
+        });
+
+        // Muda a cor do título ao passar o mouse
+        h1.addEventListener('mouseover', () => {
+            h1.style.color = 'blue'; // Altera a cor do título para azul
+        });
+
+        // Volta à cor original ao retirar o mouse do título
+        h1.addEventListener('mouseout', () => {
+            h1.style.color = 'black'; // Volta à cor preta
+        });
+    </script>
+
+    <script>
+        // Função para adicionar um novo item à lista
+        function addListItem(){
+            const lista = document.querySelector('#lista'); // Seleciona a lista
+            const li = document.createElement('li'); // Cria um novo elemento <li>
+            li.innerHTML = '¢¬£'; // Define o conteúdo do novo <li>
+            lista.appendChild(li); // Adiciona o <li> à lista
+        }
+
+        // Função para remover o último item da lista
+        function removeItem(){
+            const list = document.querySelector('#lista'); // Seleciona a lista
+            const lastElement = list.lastElementChild; // Pega o último elemento <li> da lista
+            if (lastElement) { // Verifica se existe um último elemento
+                lastElement.remove(); // Remove o último <li> da lista
+            }
+        }
+
+        // Função para adicionar o texto do input como nó de texto no parágrafo
+        function addTextNode(){
+            const text = document.querySelector('#input-text'); // Seleciona o input de texto
+            const newText = document.createTextNode(text.value); // Cria um nó de texto com o valor do input
+            const p = document.querySelector('#paragrafo'); // Seleciona o parágrafo
+            p.appendChild(newText); // Adiciona o nó de texto ao parágrafo
+        }
+    </script>
+</body>

@@ -1,0 +1,67 @@
+<body>
+    <style>
+        body{
+            display: flex;
+            flex-direction: row-reverse;
+            margin: 40px;
+            justify-content: space-around;
+        }
+        /* Estilos para os elementos de arrastar e soltar */
+        #draggable, #dropzone {
+            width: 100px;
+            height: 100px;
+            background-color: rebeccapurple;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Estilo para a zona de soltura (dropzone) */
+        #dropzone {
+            background-color: cyan !important; /* Importante para garantir a cor da dropzone */
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+
+    <!-- Elemento que pode ser arrastado -->
+    <div id="draggable" draggable="true">Arraste-me</div>
+
+    <!-- Zona onde o elemento será solto -->
+    <div id="dropzone">Solte Aqui</div>
+    <div id="dropzone">Solte Aqui</div>
+    <div id="dropzone">Solte Aqui</div>
+    <div id="dropzone">Solte Aqui</div>
+
+    <script>
+        // Seleciona o elemento que pode ser arrastado
+        const draggable = document.querySelector('#draggable');
+
+        const dropzone = document.querySelector('#dropzone');
+
+        // Evento disparado quando o arrasto é iniciado
+        draggable.addEventListener('dragstart', (e) => {
+            e.dataTransfer.setData("text/plain", e.target.id); // Define o id do elemento arrastado como dado a ser transferido
+        });
+
+        // Evento disparado ao arrastar o elemento sobre a zona de soltura
+        dropzone.addEventListener('dragover', (e) => {
+            e.preventDefault(); // Previne o comportamento padrão para permitir o drop
+        });
+
+        // Evento disparado ao soltar o elemento na dropzone
+        dropzone.addEventListener('drop', (e) => {
+            e.preventDefault(); // Previne o comportamento padrão
+
+            // Obtém o id do elemento arrastado a partir dos dados transferidos
+            const draggableId = e.dataTransfer.getData('text/plain');
+            // Seleciona o elemento arrastado com base no id
+            const draggableElement = document.getElementById(draggableId);
+
+            // Adiciona o elemento arrastado dentro da dropzone
+            dropzone.appendChild(draggableElement);
+        });
+
+
+    </script>
+</body>

@@ -1,0 +1,28 @@
+<body>
+    <input type="text">
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+    </ul>
+
+    <script>
+        // Seleciona o elemento <ul>
+        const ul = document.querySelector('ul');
+
+        // Função assíncrona que adiciona um novo item à lista após 5 segundos
+        setTimeout(() => { 
+            const li = document.createElement('li'); // Cria um novo elemento <li>
+            li.innerHTML = '🐱‍🐉🐱‍💻🐱‍👓🐱‍🚀'; // Define o conteúdo do novo <li> com emojis
+            ul.appendChild(li); // Adiciona o novo <li> à <ul>
+        }, 5000); // Atraso de 5 segundos antes de executar a função
+
+        // Define um intervalo que exibe "👍" no console a cada 1 segundo
+        const time = setInterval(() => {
+            console.log("👍"); // Exibe o símbolo de "joinha" no console a cada segundo
+        }, 1000);
+
+        
+         // Aqui para clearInterval, para parar o intervalo
+    </script>
+</body>

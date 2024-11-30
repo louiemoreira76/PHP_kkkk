@@ -1,0 +1,41 @@
+<body>
+<style>
+    body{
+        height: 2000px;
+        width: 2000px;
+    }
+    #info{
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: paleturquoise;
+        padding: 5px 10px;
+    }
+</style>
+    <div id="info">🐱‍🏍🐱‍🚀🐱‍👓🐱‍💻🐱‍🐉🐱‍👤😾😿😽🙀😼😻😹😸😸😺</div>
+    <script>
+
+        const info = document.querySelector('#info')
+
+        window.addEventListener('resize', () => {
+            const width = window.innerWidth
+            const height = window.innerHeight
+            info.textContent = `Janela redimecionada para y: ${height} x: ${width}`
+        })
+
+
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset
+            const scrollL = window.pageXOffset
+
+            info.textContent = `Pagina rolada para eixo y:${scrollTop} x: ${scrollL}`
+        })
+
+        window.addEventListener('mousemove', (e) => {
+            const eixoX = e.clientX
+            const eixoY = e.clientY
+
+            info.textContent = `Posição do mouse y: ${eixoY} x: ${eixoX}`
+        })
+    </script>
+</body>
